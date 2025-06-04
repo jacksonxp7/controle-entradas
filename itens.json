@@ -1,0 +1,58 @@
+{
+    "pratos": {
+        "imagemTopo": "./imagens/label_inicio/porcoes-individuais-bar.jpg",
+        "icone": "./imagens/sistema/peixe-e-batata-frita.png",
+        "itens": [
+            {
+                "nome": "Prato 1",
+                "preco": "R$ 13,99"
+            },
+            {
+                "nome": "Prato 2",
+                "preco": "R$ 21,99"
+            }
+        ]
+    },
+    "porções": {
+        "imagemRodape": "./imagens/label_inicio/fazer-tabua-de-frios.jpg",
+        "icone": "./imagens/sistema/poutine.png",
+        "itens": [
+            {
+                "nome": "Porção 1",
+                "preco": "R$ 19,99"
+            },
+            {
+                "nome": "Porção 2",
+                "preco": "R$ 21,99"
+            }
+        ]
+    },
+    "bebidas": {
+        "imagemTopo": "./imagens/label_inicio/tipos-de-porcoes.jpg",
+        "icone": "./imagens/sistema/alcool.png",
+        "itens": [
+            {
+                "nome": "Bebida 1",
+                "preco": "R$ 19,99"
+            },
+            {
+                "nome": "Bebida 2",
+                "preco": "R$ 21,99"
+            }
+        ]
+    },
+    "sobremesas": {
+        "imagemRodape": "./imagens/label_inicio/tabua-quente-bar.jpg",
+        "icone": "./imagens/sistema/sobremesa.png",
+        "itens": [
+            {
+                "nome": "Doce 1",
+                "preco": "R$ 19,99"
+            },
+            {
+                "nome": "Doce 2",
+                "preco": "R$ 21,99"
+            }
+        ]
+    }
+}

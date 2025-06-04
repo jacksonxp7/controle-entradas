@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>avenida restaurante</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+    <div id="loading" class='hide'>loading</div>
+
+    <div id="container_header">
+        <h3>
+            Quentinha Avenida
+        </h3>
+        <img class="logo_header" src="./imagens/sistema/prato.png" alt="">
+        <div id="button_menu"><img src="./imagens/sistema/barra-de-menu.png" alt=""></div>
+
+    </div>
+
+
+    <div id="container_app">
+
+
+
+
+        <div id="container_inicio" class="show container_app_content">
+            <div id="container-inicio">
+                <div id="labelimages"></div>
+                <button id="botaoclickeaqui">adicionar item ao cardapio</button>
+                <div id="cardapio"></div>
+              
+            </div>
+        </div>
+
+        <div id="container_dashboard" class="hide">
+            <div id="container-dashboard"></div>
+        </div>
+
+        <div id="container_planilhas" class="hide">planilhas</div>
+
+        <div id="container_historico" class="hide">
+            <div id="search">
+                <select id="select-mes">
+                    <option value="1">Janeiro</option>
+                    <option value="2">Fevereiro</option>
+                    <option value="3">Março</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Maio</option>
+                    <option value="6">Junho</option>
+                    <option value="7">Julho</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Setembro</option>
+                    <option value="10">Outubro</option>
+                    <option value="11">Novembro</option>
+                    <option value="12">Dezembro</option>
+                </select>
+
+                <input type="date" id="input-dia">
+                <input type="text" id="input-item" placeholder="Filtrar por item">
+                <button id="btn-filtrar">Filtrar</button>
+                <button id="btn-limpar">Limpar</button>
+            </div>
+
+
+            <div id="container-historico"></div>
+        </div>
+
+        <div id="container_mesas" class="hide">
+            <div id="container-mesas">
+                <div id="adicionar-comanda-mesa">
+                    <div id="label-adicionar">
+                        <div class="label-adicionar-texto">mesa</div>
+                        <div class="label-adicionar-texto">quantidade</div>
+                        <div class="label-adicionar-texto">itens</div>
+                    </div>
+                    <div id="inputs-adicionar">
+                        <input type="text" id="input-mesa">
+                        <input type="number" id="input-qtd">
+                        <select id="input-itens">
+                            <option value="item1">Item 1</option>
+                            <option value="item2">Item 2</option>
+                            <option value="item3">Item 3</option>
+                        </select>
+                    </div>
+                    <button id="button-adicionar-comanda-mesa">adicionar</button>
+
+                </div>
+
+
+                <div id="mesas-atuais">
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+    <div id="container_menu">
+        <div id="botaofechar_menu"><img src="./imagens/sistema/seta-esquerda.png" alt=""></div>
+
+
+        <div id="botoes_menu">
+
+            <button id="button_inicio"><img src="./imagens/sistema/casa.png">inicio</button>
+            <button id="button_dashboard"><img src="./imagens/sistema/painel-de-controle.png">dashboard</button>
+            <button id="button_planilhas"><img src="./imagens/sistema/planilha.png">planilhas</button>
+            <button id="button_historico"><img src="./imagens/sistema/historia.png">historico</button>
+            <button id="button_mesas"><img src="./imagens/sistema/mesa.png">mesas</button>
+        </div>
+
+
+    </div>
+
+    <script type="module" src="./scripts/script.js"></script>
+
+</body>
+
+</html>
+
+
