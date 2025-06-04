@@ -128,7 +128,7 @@
         border-radius: 10px;
         padding: 5px;
     }
-    
+
     #cancelAddItem {
         background: #37b118;
         font-size: 30px;
@@ -136,7 +136,8 @@
         border-radius: 10px;
         padding: 5px;
     }
-    input{
+
+    input {
         font-size: 30px;
         width: 100%;
     }
@@ -388,11 +389,34 @@
                             .produto {
                                 color: rgb(225, 225, 225);
                                 cursor: pointer;
+                                 &:hover {
+                                    color: red;
+                                    transform: scale(100);
+                                    transition: color 0.3s, transform 0.3s;
+                                }
                             }
                             
                             .preco {
                                 color: rgb(230, 129, 28);
                                 cursor: pointer;
+                                margin-left: 20px;
+                                 &:hover {
+                                    transform: scale(100);
+                                    transition: color 0.3s, transform 0.3s;
+                                    color: rgb(255, 255, 0);
+                                }
+                            }
+
+                            .input-preco {
+                                background: rgb(80, 45, 9);
+                                font-size: 30px;
+                                margin-left: 20px;
+                            }
+                            .btn-confirmar{
+                                
+                                background: rgb(80, 45, 9);
+                                font-size: 30px;
+                                border: none;
                             }
 
 
@@ -692,13 +716,14 @@
         z-index: 3;
 
 
-        input{
+        input {
             font-size: 25px;
         }
-        select{
+
+        select {
             font-size: 25px;
         }
-        
+
         button {
             height: 90%;
             padding: 5px;
@@ -713,12 +738,13 @@
                 border-color: #999;
                 outline: none;
             }
+
             &:hover {
                 background: #e2e2e2;
             }
         }
 
-        
+
     }
 
     #container-historico {

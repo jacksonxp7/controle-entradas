@@ -317,7 +317,7 @@ function inicio() {
 
         let produtoClicado = null;
 
-        cardapioContainer.addEventListener("dblclick", function (e) {
+        cardapioContainer.addEventListener("click", function (e) {
             if (e.target.classList.contains("produto")) {
                 produtoClicado = e.target;
                 const nomeProduto = produtoClicado.textContent.trim();

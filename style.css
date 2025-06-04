@@ -313,9 +313,30 @@
   color: rgb(225, 225, 225);
   cursor: pointer;
 }
+#container_inicio #container-inicio #cardapio .cardapios .itens-cardapio ul li .produto:hover {
+  color: red;
+  transform: scale(100);
+  transition: color 0.3s, transform 0.3s;
+}
 #container_inicio #container-inicio #cardapio .cardapios .itens-cardapio ul li .preco {
   color: rgb(230, 129, 28);
   cursor: pointer;
+  margin-left: 20px;
+}
+#container_inicio #container-inicio #cardapio .cardapios .itens-cardapio ul li .preco:hover {
+  transform: scale(100);
+  transition: color 0.3s, transform 0.3s;
+  color: rgb(255, 255, 0);
+}
+#container_inicio #container-inicio #cardapio .cardapios .itens-cardapio ul li .input-preco {
+  background: rgb(80, 45, 9);
+  font-size: 30px;
+  margin-left: 20px;
+}
+#container_inicio #container-inicio #cardapio .cardapios .itens-cardapio ul li .btn-confirmar {
+  background: rgb(80, 45, 9);
+  font-size: 30px;
+  border: none;
 }
 #container_inicio #container-inicio #cardapio .cardapios img {
   width: 50%;
