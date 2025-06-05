@@ -371,6 +371,9 @@
   justify-content: space-evenly;
   padding: 10px 0px;
 }
+#container-mesas #adicionar-comanda-mesa .verde {
+  background: green;
+}
 #container-mesas #adicionar-comanda-mesa #label-adicionar {
   width: 100%;
   display: flex;
