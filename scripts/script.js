@@ -264,9 +264,11 @@ function inicio() {
             // Or, we can make this function also re-render if it made changes.
             // For simplicity, let's make it re-render.
             gerarCardapio(cardapioAtual);
+
             return true; // Indicates that changes were made and cardapio re-rendered
         }
         return false; // Indicates no changes were made
+
     }
 
 
@@ -321,6 +323,7 @@ function inicio() {
                 mensagem.textContent = `Tem certeza que deseja excluir o item "${nomeProduto}"?`;
                 modal.style.display = "flex";
             }
+
         });
 
         btnCancelar.addEventListener("click", () => {
@@ -349,6 +352,7 @@ function inicio() {
                 );
 
                 salvarCardapio(cardapioAtual);
+
 
                 const secaoRemovida = removerSecoesVazias();
                 if (!secaoRemovida) {
