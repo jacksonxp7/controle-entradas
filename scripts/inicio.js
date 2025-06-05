@@ -1,5 +1,7 @@
+import { mesas } from "./mesas.js";
+
 export function inicio() {
-    // SLIDER FUNCTIONALITY
+
     function slider() {
         const sliderElement = document.getElementById('labelimages');
         if (!sliderElement) return;
@@ -19,7 +21,7 @@ export function inicio() {
         }
     }
 
-    // CARDAPIO INITIALIZATION AND MANAGEMENT
+
     function inicializarCardapio() {
         if (!localStorage.getItem("cardapio")) {
             localStorage.setItem("cardapio", JSON.stringify({}));
@@ -105,7 +107,7 @@ export function inicio() {
         }
     }
 
-    // PRICE EDITING FUNCTIONALITY
+
     function editarPreco() {
         document.addEventListener("click", function (e) {
             if (e.target.classList.contains("preco")) {
@@ -166,7 +168,7 @@ export function inicio() {
         });
     }
 
-    // NEW FUNCTION: REMOVE EMPTY SECTIONS
+
     function removerSecoesVazias() {
         const cardapioAtual = JSON.parse(localStorage.getItem("cardapio"));
         if (!cardapioAtual) return false; // No cardapio, nothing to do
@@ -200,7 +202,7 @@ export function inicio() {
     }
 
 
-    // ITEM DELETION FUNCTIONALITY
+
     function habilitarExclusaoItem() {
         const cardapioContainer = document.getElementById("cardapio");
         if (!cardapioContainer) return;
@@ -290,13 +292,14 @@ export function inicio() {
 
             modal.style.display = "none";
             produtoClicado = null;
+            mesas()
         });
     }
 
 
 
 
-    // FORM TO ADD NEW ITEMS/SECTIONS
+
     function mostrarFormulario() {
         if (document.getElementById("formAdicionarItem")) {
             document.getElementById("formAdicionarItem").remove();
@@ -364,17 +367,19 @@ export function inicio() {
             salvarCardapio(cardapioAtual);
             gerarCardapio(cardapioAtual);
             form.remove();
+            // 
+            mesas()
         });
         form.querySelector("#cancelAddItem").addEventListener("click", () => form.remove());
     }
 
-    // --- INITIALIZATION SEQUENCE ---
+
     slider();
     inicializarCardapio();
-    carregarCardapio(); // Loads and generates cardapio from localStorage
-    removerSecoesVazias(); // Clean up any empty sections on initial load (and re-renders if needed)
+    carregarCardapio();
+    removerSecoesVazias();
     editarPreco();
-    habilitarExclusaoItem(); // Enables item deletion, which also calls removerSecoesVazias
+    habilitarExclusaoItem();
 
     const botaoAdicionar = document.getElementById("botaoclickeaqui");
     if (botaoAdicionar) {
