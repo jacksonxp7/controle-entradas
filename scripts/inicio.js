@@ -1,5 +1,7 @@
 import { mesas } from "./mesas.js";
 
+const mesasimportada = mesas();
+
 export function inicio() {
 
     function slider() {
@@ -184,15 +186,13 @@ export function inicio() {
                 delete cardapioAtual[secaoNome];
                 algumaSecaoFoiRemovida = true;
                 console.log(`Seção "${secaoNome}" removida automaticamente por estar vazia.`);
+
             }
+
         }
 
         if (algumaSecaoFoiRemovida) {
             salvarCardapio(cardapioAtual);
-            // We don't call gerarCardapio here directly.
-            // The function that calls removerSecoesVazias should decide if a re-render is needed.
-            // Or, we can make this function also re-render if it made changes.
-            // For simplicity, let's make it re-render.
             gerarCardapio(cardapioAtual);
 
             return true; // Indicates that changes were made and cardapio re-rendered
@@ -282,6 +282,7 @@ export function inicio() {
                 );
 
                 salvarCardapio(cardapioAtual);
+                mesasimportada.construirCardapioInternoNoInput();
 
 
                 const secaoRemovida = removerSecoesVazias();
@@ -292,7 +293,7 @@ export function inicio() {
 
             modal.style.display = "none";
             produtoClicado = null;
-            mesas()
+
         });
     }
 

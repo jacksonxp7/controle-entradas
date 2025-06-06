@@ -36,6 +36,7 @@ export function mesas() {
     }
 
     function construirCardapioInternoNoInput() {
+        console.log('atualizar input')
         if (!cardapioContentElGlobal) return;
         cardapioContentElGlobal.innerHTML = "";
 
@@ -366,6 +367,7 @@ export function mesas() {
             }
             exibirMesas();
             
+
         });
     } else {
         console.error("Botão 'button-adicionar-comanda-mesa' não encontrado.");
@@ -375,6 +377,9 @@ export function mesas() {
     carregarCardapioData();
     setupCardapioDivParaInput();
     exibirMesas();
+    return {
+        construirCardapioInternoNoInput, carregarCardapioData
+    };
 
 }
 
