@@ -389,18 +389,20 @@
                             .produto {
                                 color: rgb(225, 225, 225);
                                 cursor: pointer;
-                                 &:hover {
+
+                                &:hover {
                                     color: red;
                                     transform: scale(100);
                                     transition: color 0.3s, transform 0.3s;
                                 }
                             }
-                            
+
                             .preco {
                                 color: rgb(230, 129, 28);
                                 cursor: pointer;
                                 margin-left: 20px;
-                                 &:hover {
+
+                                &:hover {
                                     transform: scale(100);
                                     transition: color 0.3s, transform 0.3s;
                                     color: rgb(255, 255, 0);
@@ -412,8 +414,9 @@
                                 font-size: 30px;
                                 margin-left: 20px;
                             }
-                            .btn-confirmar{
-                                
+
+                            .btn-confirmar {
+
                                 background: rgb(80, 45, 9);
                                 font-size: 30px;
                                 border: none;
@@ -481,7 +484,7 @@
         justify-content: space-evenly;
         padding: 10px 0px;
 
-        .verde{
+        .verde {
             background: green;
         }
 
@@ -855,4 +858,148 @@
 
         }
     }
+}
+
+
+#container_dashboard {
+    // --- Variáveis de Cor e Estilo ---
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+    $primary-color: #1e3a8a;
+    $body-bg: #f0f2f5;
+    $white: #fff;
+    $text-color: #333;
+    $light-gray-border: #f1f5f9;
+    $medium-gray-border: #e2e8f0;
+    $light-blue-bg: #e0e7ff;
+    $muted-text-color: #64748b;
+
+    // --- Estilos Globais ---
+
+
+    h1 {
+        text-align: center;
+        color: $primary-color;
+        margin-bottom: 30px;
+    }
+
+    // --- Layout do Dashboard ---
+    #container-dashboard {
+        // display: grid;
+        // grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        // max-width: 1400px;
+        margin: 0 auto;
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+        padding: 10px;
+    }
+
+    // --- Cards ---
+    .metric-cards {
+
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 20px;
+        // flex-wrap: wrap;
+
+        .metric-card {
+            background-color: $primary-color;
+            color: $white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            flex-grow: 1;
+
+            h3 {
+                margin: 0 0 10px 0;
+                font-size: 1.1em;
+                text-transform: uppercase;
+                font-weight: 300;
+            }
+
+            p {
+                margin: 0;
+                font-size: 2.2em;
+                font-weight: 700;
+            }
+        }
+    }
+
+
+    .dashboard-card {
+        background-color: $white;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 30%;
+        
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: $primary-color;
+            border-bottom: 2px solid $medium-gray-border;
+            padding-bottom: 10px;
+        }
+
+        p.empty-message {
+            color: $muted-text-color;
+            text-align: center;
+            padding: 40px 0;
+        }
+    }
+
+    // --- Lista de Itens (Top 10) ---
+    .top-items-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5px;
+            border-bottom: 1px solid $light-gray-border;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            .item-name {
+                font-weight: 500;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding-right: 10px;
+            }
+
+            .item-quantity {
+                font-weight: bold;
+                color: $primary-color;
+                background-color: $light-blue-bg;
+                padding: 2px 8px;
+                border-radius: 12px;
+                font-size: 0.9em;
+                flex-shrink: 0; // Evita que o contador encolha
+            }
+        }
+    }
+
 }
