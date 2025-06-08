@@ -404,6 +404,41 @@
   width: 30%;
   text-align: center;
 }
+#container-mesas #adicionar-comanda-mesa #inputs-adicionar #input-itens {
+  position: relative;
+  width: 300px;
+  height: 40px;
+  margin: 50px;
+  background: white;
+  color: black;
+  border: 1px solid black;
+}
+#container-mesas #adicionar-comanda-mesa #inputs-adicionar .cardapio-content {
+  color: black;
+  position: absolute;
+  top: 100%;
+  margin-top: 10px;
+  left: 0;
+  width: 100%;
+}
+#container-mesas #adicionar-comanda-mesa #inputs-adicionar .secao-header {
+  background: rgb(255, 255, 255);
+  color: black;
+  border: 1px solid black;
+}
+#container-mesas #adicionar-comanda-mesa #inputs-adicionar .secao-itens-container {
+  background: rgba(208, 65, 65, 0);
+  color: black;
+  height: 50vh;
+  overflow-y: auto;
+}
+#container-mesas #adicionar-comanda-mesa #inputs-adicionar .secao-itens-container .item {
+  margin-top: 5px;
+  background: white;
+  color: black;
+  border: 1px solid black;
+  padding: 0px 10px;
+}
 #container-mesas #adicionar-comanda-mesa button {
   font-size: 30px;
   padding: 10px;
@@ -845,7 +880,8 @@
   text-overflow: ellipsis;
   padding-right: 10px;
 }
-#container_dashboard #container-dashboard .top-items-list li .item-quantity, #container_dashboard #container-dashboard .top-items-list li .item-value {
+#container_dashboard #container-dashboard .top-items-list li .item-quantity,
+#container_dashboard #container-dashboard .top-items-list li .item-value {
   font-weight: bold;
   color: #1e3a8a;
   background-color: #e0e7ff;
@@ -865,7 +901,8 @@
   border-collapse: collapse;
   font-size: 0.9em;
 }
-#container_dashboard #container-dashboard .heatmap-table th, #container_dashboard #container-dashboard .heatmap-table td {
+#container_dashboard #container-dashboard .heatmap-table th,
+#container_dashboard #container-dashboard .heatmap-table td {
   padding: 8px;
   text-align: center;
   border: 1px solid #e2e8f0;

@@ -524,6 +524,56 @@
                 width: 30%;
                 text-align: center;
             }
+
+            #input-itens {
+
+                position: relative;
+                width: 300px;
+                height: 40px;
+                margin: 50px;
+
+                background: white;
+                color: black;
+                border: 1px solid black;
+            }
+
+            .cardapio-content {
+                // background: white;
+                color: black;
+                // border: 1px solid black;
+
+                position: absolute;
+
+                top: 100%;
+
+                margin-top: 10px;
+
+                left: 0;
+                width: 100%;
+            }
+            .secao-header{
+                background: rgb(255, 255, 255);
+                color: black;
+                border: 1px solid black;
+                
+            }
+
+            .secao-itens-container {
+                background: rgba(208, 65, 65, 0);
+                color: black;
+                height: 50vh;
+                overflow-y: auto;
+                // border: 1px solid black;
+                // gap: 10px;
+                .item{
+                    margin-top: 5px;
+                    background: white;
+                    color: black;
+                    border: 1px solid black;
+                    padding: 0px 10px;
+
+                }
+            }
         }
 
         button {
@@ -1033,7 +1083,7 @@ $heat-4: #1d4ed8;
         .comparison-card-content {
             text-align: center;
             margin: auto;
-            
+
             .period-label {
                 color: $muted-text-color;
                 font-size: 1.1em;
@@ -1049,8 +1099,14 @@ $heat-4: #1d4ed8;
             .comparison-value {
                 font-size: 1.2em;
                 font-weight: bold;
-                &.positive { color: $success-color; }
-                &.negative { color: $danger-color; }
+
+                &.positive {
+                    color: $success-color;
+                }
+
+                &.negative {
+                    color: $danger-color;
+                }
             }
         }
 
@@ -1078,8 +1134,9 @@ $heat-4: #1d4ed8;
                     text-overflow: ellipsis;
                     padding-right: 10px;
                 }
-                
-                .item-quantity, .item-value {
+
+                .item-quantity,
+                .item-value {
                     font-weight: bold;
                     color: $primary-color;
                     background-color: $light-blue-bg;
@@ -1103,8 +1160,9 @@ $heat-4: #1d4ed8;
             width: 100%;
             border-collapse: collapse;
             font-size: 0.9em;
-            
-            th, td {
+
+            th,
+            td {
                 padding: 8px;
                 text-align: center;
                 border: 1px solid $medium-gray-border;
@@ -1129,16 +1187,33 @@ $heat-4: #1d4ed8;
                 font-weight: bold;
                 color: $primary-color;
                 transition: transform 0.2s;
-                
+
                 &:hover {
                     transform: scale(1.1);
                 }
 
-                &.heat-0 { background-color: $heat-0; color: $muted-text-color; }
-                &.heat-1 { background-color: $heat-1; }
-                &.heat-2 { background-color: $heat-2; }
-                &.heat-3 { background-color: $heat-3; color: $white; }
-                &.heat-4 { background-color: $heat-4; color: $white; }
+                &.heat-0 {
+                    background-color: $heat-0;
+                    color: $muted-text-color;
+                }
+
+                &.heat-1 {
+                    background-color: $heat-1;
+                }
+
+                &.heat-2 {
+                    background-color: $heat-2;
+                }
+
+                &.heat-3 {
+                    background-color: $heat-3;
+                    color: $white;
+                }
+
+                &.heat-4 {
+                    background-color: $heat-4;
+                    color: $white;
+                }
             }
         }
     }

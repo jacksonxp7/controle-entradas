@@ -9,7 +9,7 @@ export function mesas() {
     const inputMesaEl = document.getElementById('input-mesa');
     const inputQtdEl = document.getElementById('input-qtd');
 
-    const placeholderTextOriginal = 'Clique para selecionar um item';
+    const placeholderTextOriginal = '';
     let cardapioDataGlobal = {};
     let cardapioAbertoNoInput = false;
     let cardapioConstruidoNoInput = false;
