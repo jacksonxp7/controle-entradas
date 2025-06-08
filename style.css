@@ -406,7 +406,7 @@
 }
 #container-mesas #adicionar-comanda-mesa #inputs-adicionar #input-itens {
   position: relative;
-  width: 300px;
+  width: 30%;
   height: 40px;
   margin: 50px;
   background: white;
@@ -414,6 +414,7 @@
   border: 1px solid black;
 }
 #container-mesas #adicionar-comanda-mesa #inputs-adicionar .cardapio-content {
+  background: rgba(0, 0, 0, 0.095);
   color: black;
   position: absolute;
   top: 100%;

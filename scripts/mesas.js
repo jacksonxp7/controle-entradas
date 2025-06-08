@@ -96,9 +96,11 @@ export function mesas() {
             if (cardapioAbertoNoInput) {
                 if (!cardapioConstruidoNoInput) construirCardapioInternoNoInput();
                 cardapioContentElGlobal.style.display = 'block';
+
                 if (placeholderElGlobal) placeholderElGlobal.style.display = 'none';
             } else {
                 cardapioContentElGlobal.style.display = 'none';
+                // inputItensDiv.innerHTML = 'fefe';
                 if (placeholderElGlobal) placeholderElGlobal.style.display = 'block';
             }
         });
@@ -366,7 +368,7 @@ export function mesas() {
                 placeholderElGlobal.style.fontWeight = 'normal';
             }
             exibirMesas();
-            
+
 
         });
     } else {
