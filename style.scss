@@ -890,12 +890,10 @@ $heat-4: #1d4ed8;
     color: $text-color;
     padding: 20px;
     height: 100vh;
-    display: flex;
     flex-direction: column;
     overflow: hidden;
     box-sizing: border-box;
 
-    // Estilo do título principal, contido dentro do dashboard
     h1 {
         text-align: center;
         color: $primary-color;
@@ -903,7 +901,7 @@ $heat-4: #1d4ed8;
         flex-shrink: 0;
     }
 
-    // --- Container dos Filtros ---
+
     #container-filtros {
         background-color: $white;
         padding: 15px 20px;
