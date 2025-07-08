@@ -1,145 +1,219 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>avenida restaurante</title>
-    <link rel="stylesheet" href="./style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-
+    <link rel="stylesheet" href="style.css">
+    <title>Takano BJJ</title>
 </head>
 
 <body>
-    <div></div>
-    <div id="loading" class='hide'>loading</div>
-
-    <div id="container_header">
-        <h3>
-            Quentinha Avenida
-        </h3>
-        <img class="logo_header" src="./imagens/sistema/prato.png" alt="">
-        <div id="button_menu"><img src="./imagens/sistema/barra-de-menu.png" alt=""></div>
-
+    <!-- TELA DE LOADING INICIAL -->
+    <div id="loading">
+        <div class="loading-animation">
+            <div class="img-loading-ring"></div>
+            <img class="img-loading-logo" src="WhatsApp Image 2025-06-24 at 19.19.25.jpeg" alt="Logo Takano BJJ">
+        </div>
+        <div>Carregando...</div>
     </div>
 
-
-    <div id="container_app">
-
-
-
-
-        <div id="container_inicio" class="show container_app_content">
-            <div id="container-inicio">
-                <div id="labelimages"></div>
-                <button id="botaoclickeaqui">adicionar item ao cardapio</button>
-                <div id="cardapio"></div>
-
-            </div>
+    <!-- TELA DE LOGIN/CADASTRO (ÚNICA PARA TODOS) -->
+    <div class="view hide" id="auth-screen">
+        <div class="auth-container">
+            <img class="auth-logo" src="WhatsApp Image 2025-06-24 at 19.19.25.jpeg" alt="Logo Takano BJJ">
+            <form id="login-form" class="auth-form">
+                <h2>Login</h2>
+                <input type="email" id="login-email" placeholder="Seu e-mail" required autocomplete="username">
+                <input type="password" id="login-password" placeholder="Sua senha" required
+                    autocomplete="current-password">
+                <button type="submit">Entrar</button>
+                <p class="form-switch">Não tem uma conta? <a href="#" id="show-register-form">Cadastre-se</a></p>
+            </form>
+            <form id="register-form" class="auth-form hide">
+                <h2>Cadastro</h2>
+                <input type="text" id="register-name" placeholder="Seu nome completo" required autocomplete="name">
+                <input type="email" id="register-email" placeholder="Seu e-mail" required autocomplete="email">
+                <input type="password" id="register-password" placeholder="Crie uma senha" required
+                    autocomplete="new-password">
+                <button type="submit">Cadastrar</button>
+                <p class="form-switch">Já tem uma conta? <a href="#" id="show-login-form">Faça o login</a></p>
+            </form>
+            <div class="divider"><span>ou</span></div>
+            <button id="login-google-btn" class="google-btn">
+                <svg viewBox="0 0 48 48" width="24px" height="24px">
+                    <path fill="#FFC107"
+                        d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12s5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
+                    </path>
+                    <path fill="#FF3D00"
+                        d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
+                    </path>
+                    <path fill="#4CAF50"
+                        d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
+                    </path>
+                    <path fill="#1976D2"
+                        d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571l6.19,5.238C42.021,35.596,44,30.138,44,24C44,22.659,43.862,21.35,43.611,20.083z">
+                    </path>
+                </svg>
+                <span>Entrar com Google</span>
+            </button>
         </div>
+    </div>
 
-        <div id="container_dashboard" class="hide">
-            <div id="container-filtros">
-                
-            </div>
-            <div id="container-dashboard"></div>
-        </div>
+    <div id="student-panel" class="hide">
+        <main id="app-container"></main>
+        <nav id="navbar">
+            <button class="nav-btn active" data-view="home">Home</button>
+            <button class="nav-btn" data-view="aulas">Aulas</button>
+            <button class="nav-btn" data-view="chamada">Chamada</button>
+            <button class="nav-btn" data-view="perfil">Perfil</button>
+        </nav>
+    </div>
 
-        <div id="container_planilhas" class="hide">planilhas</div>
+    <div id="admin-panel" class="hide">
+        <main id="admin-app-container"></main>
+        <nav id="admin-navbar">
+            <button class="nav-btn active" data-view="alunos">Alunos</button>
+            <button class="nav-btn" data-view="novidades">Novidades</button>
+            <button class="nav-btn" data-view="cancelar">Cancelar Dia</button>
+            <button class="nav-btn" data-view="gerenciar-admins" id="goto-manage-admins-btn">Gerenciar Admins</button>
+            <button id="goto-student-view-btn" class="btn-success">Aluno</button>
+        </nav>
+    </div>
 
-        <div id="container_historico" class="hide">
-            <div id="search">
-                <select id="select-mes">
-                    <option value="1">Janeiro</option>
-                    <option value="2">Fevereiro</option>
-                    <option value="3">Março</option>
-                    <option value="4">Abril</option>
-                    <option value="5">Maio</option>
-                    <option value="6">Junho</option>
-                    <option value="7">Julho</option>
-                    <option value="8">Agosto</option>
-                    <option value="9">Setembro</option>
-                    <option value="10">Outubro</option>
-                    <option value="11">Novembro</option>
-                    <option value="12">Dezembro</option>
-                </select>
+    <button id="goto-admin-btn" class="hide"
+        style="position: fixed; bottom: 80px; right: 20px; z-index: 101; width: 60px; height: 60px; border-radius: 50%; font-size: 1.5rem; display: flex; align-items: center; justify-content: center;">⚙️</button>
 
-                <input type="date" id="input-dia">
-                <input type="text" id="input-item" placeholder="Filtrar por item">
-                <button id="btn-filtrar">Filtrar</button>
-                <button id="btn-limpar">Limpar</button>
-            </div>
+    <div id="toast-container"></div>
 
-
-            <div id="container-historico"></div>
-        </div>
-
-        <div id="container_mesas" class="hide">
-            <div id="container-mesas">
-                <div id="adicionar-comanda-mesa">
-                    <div id="label-adicionar">
-                        <div class="label-adicionar-texto">mesa</div>
-                        <div class="label-adicionar-texto">quantidade</div>
-                        <div class="label-adicionar-texto">itens</div>
-                    </div>
-                    <div id="inputs-adicionar">
-                        <input type="text" id="input-mesa">
-                        <input type="number" id="input-qtd">
-                        <div id="input-itens" class="cardapio-container">
-
-                        </div>
-                    </div>
-                    <button id="button-adicionar-comanda-mesa">adicionar</button>
-
+    <template id="view-template-perfil">
+        <div class="view" id="perfil">
+            <h2>Meu Perfil</h2>
+            <div class="profile-card">
+                <div class="profile-pic-container">
+                    <img id="profile-pic-img" src="WhatsApp Image 2025-06-24 at 19.19.25.jpeg"
+                        alt="Foto do Perfil">
+                    <label for="profile-pic-upload" class="profile-pic-edit-btn">✏️</label>
+                    <input type="file" id="profile-pic-upload" accept="image/*" class="hide">
+                    <div class="spinner hide" id="pic-upload-spinner"></div>
                 </div>
-
-
-                <div id="mesas-atuais">
-
-
-
-
-
-
-                </div>
-
-
-
-
-
+                <h3 id="profile-name"></h3>
+                <p id="profile-email"></p>
+                <div id="profile-plan-status"></div>
+                <button id="logout-btn" class="btn-danger" style="margin-top: 20px;">Sair</button>
             </div>
-
-
-
-
-
         </div>
-
-
-
-    </div>
-
-
-
-    <div id="container_menu">
-        <div id="botaofechar_menu"><img src="./imagens/sistema/seta-esquerda.png" alt=""></div>
-
-
-        <div id="botoes_menu">
-
-            <button id="button_inicio"><img src="./imagens/sistema/casa.png">inicio</button>
-            <button id="button_dashboard"><img src="./imagens/sistema/painel-de-controle.png">dashboard</button>
-            <button id="button_planilhas"><img src="./imagens/sistema/planilha.png">planilhas</button>
-            <button id="button_historico"><img src="./imagens/sistema/historia.png">historico</button>
-            <button id="button_mesas"><img src="./imagens/sistema/mesa.png">mesas</button>
+    </template>
+    <template id="view-template-home">
+        <div class="view" id="home">
+            <h2>Mural de Novidades</h2>
+            <div id="home-feed" class="content-list"></div>
         </div>
+    </template>
+    <template id="view-template-aulas">
+        <div class="view" id="aulas">
+            <h2>Aulas da Semana</h2>
+            <div id="aulas-list" class="content-list"></div>
+        </div>
+    </template>
+    <template id="view-template-chamada">
+        <div class="view" id="chamada">
+            <div class="chamada-header">
+                <h2>Chamada do Dia</h2>
+                <p id="chamada-data-atual">--/--/----</p>
+            </div>
+            <div id="user-action-container" class="user-action-container"></div>
+            <div class="chamada-lists-container">
+                <div class="chamada-list-wrapper">
+                    <h3>Confirmados (<span id="confirmados-count">0</span>)</h3>
+                    <div id="confirmados-list" class="participant-list"></div>
+                </div>
+                <div class="chamada-list-wrapper">
+                    <h3>Ausentes (<span id="ausentes-count">0</span>)</h3>
+                    <div id="ausentes-list" class="participant-list"></div>
+                </div>
+            </div>
+        </div>
+    </template>
 
+    <template id="admin-view-template-alunos">
+        <div class="view" id="alunos">
+            <h2>Gerenciar Alunos</h2>
+            <div id="alunos-list-container" class="content-list"></div>
+        </div>
+    </template>
 
-    </div>
+    <template id="admin-view-template-novidades">
+        <div class="view" id="novidades">
+            <h2>Postar Nova Novidade</h2>
+            <form id="novidade-form" class="content-list">
+                <input type="text" id="novidade-title" placeholder="Título da novidade" required>
+                <textarea id="novidade-content" rows="5" placeholder="Conteúdo da novidade..." required
+                    style="background-color: var(--bg-secondary); border: 1px solid #444; border-radius: 8px; padding: 12px; color: var(--text-primary); font-size: 1rem; font-family: inherit;"></textarea>
 
-    <script type="module" src="./scripts/script.js"></script>
+                <label for="novidade-image">Imagem (Opcional):</label>
+                <input type="file" id="novidade-image" accept="image/*"
+                    style="background-color: var(--bg-secondary); padding: 10px; border-radius: 8px;">
 
+                <button type="submit" id="btn-postar-novidade">
+                    <span id="btn-postar-text">Postar no Mural</span>
+                    <div class="spinner hide" id="novidade-spinner"
+                        style="border-top-color: #000; width: 20px; height: 20px; border-width: 2px;"></div>
+                </button>
+            </form>
+
+            <hr style="width: 100%; max-width: 600px; margin: 30px 0; border-color: #444;">
+
+            <h2>Novidades Existentes</h2>
+            <div id="existing-novidades-list" class="content-list">
+            </div>
+        </div>
+    </template>
+
+    <template id="admin-view-template-cancelar">
+        <div class="view" id="cancelar-dia">
+            <h2>Cancelar/Reativar Aula por Data</h2>
+            <div class="content-list">
+                <div class="card">
+                    <p>Selecione uma data para cancelar a chamada.</p>
+                    <input type="date" id="cancelar-date-input"
+                        style="width: 100%; padding: 10px; margin-top: 10px; background-color: var(--bg-secondary); color: var(--text-primary); border: 1px solid #444;">
+                    <button id="btn-cancelar-dia" style="width: 100%; margin-top: 10px;" class="btn-danger">Confirmar
+                        Cancelamento</button>
+                </div>
+                <h3>Dias Já Cancelados</h3>
+                <div id="dias-cancelados-list">Carregando...</div>
+            </div>
+        </div>
+    </template>
+
+    <template id="admin-view-template-gerenciar-admins">
+        <div class="view" id="gerenciar-admins">
+            <h2>Gerenciar Administradores</h2>
+            <p class="subtitle">Ative ou desative o acesso de administrador para os usuários.</p>
+            <div id="admin-management-list" class="content-list">
+            </div>
+        </div>
+    </template>
+
+    <dialog id="edit-aluno-modal"
+        style="background-color: var(--bg-secondary); color: var(--text-primary); border: 1px solid #444; border-radius: 8px; padding: 20px; width: 90%; max-width: 400px;">
+        <h3 id="modal-aluno-name">Editar Aluno</h3>
+        <form id="edit-aluno-form">
+            <input type="hidden" id="modal-aluno-id">
+            <div style="margin-bottom: 15px;"><label for="modal-plano-pago">Plano Pago?</label><input type="checkbox"
+                    id="modal-plano-pago"></div>
+            <div style="margin-bottom: 15px;"><label for="modal-validade-plano">Validade do Plano:</label><input
+                    type="date" id="modal-validade-plano"
+                    style="width: 100%; padding: 10px; background-color: var(--bg-primary); color: var(--text-primary); border: 1px solid #444;">
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end;"><button type="button"
+                    id="modal-btn-cancel" class="btn-danger">Cancelar</button><button type="submit"
+                    class="btn-success">Salvar</button></div>
+        </form>
+    </dialog>
+
+    <script type="module" src="script.js"></script>
 </body>
 
 </html>
